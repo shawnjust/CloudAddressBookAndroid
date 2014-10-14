@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_self_detail"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="查看个人信息"/>
+    <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="查找好友"/>
+    <item
+        android:id="@+id/action_stranger_application"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="好友申请"/>
+    <item
+        android:id="@+id/action_refresh"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="刷新"/>
+
+</menu>

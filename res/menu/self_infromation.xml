@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_save"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="保存"/>
+    
+    <item
+        android:id="@+id/action_add_field"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="添加字段"/>
+
+</menu>

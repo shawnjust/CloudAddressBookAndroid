@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cloudaddressbook"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.cloudaddressbook.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.RegistActivity"
+            android:label="@string/title_activity_regist" >
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.AddressBookActivity"
+            android:label="@string/title_activity_address_book" >
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.ContactorDetailActivity"
+            android:label="@string/title_activity_contactor_detail" >
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.SelfInfromationActivity"
+            android:label="@string/title_activity_self_infromation" >
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.example.cloudaddressbook.StrangerApplicationActivity"
+            android:label="@string/title_activity_stranger_application" >
+        </activity>
+    </application>
+
+</manifest>
