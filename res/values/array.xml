@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_titles">
+        <item>询盘</item>
+        <item>邮件</item>
+        <item>站体分析</item>
+        <item>服务</item>
+    </string-array>
+    <string-array name="xunpan_filters">
+        <item>全部询盘</item>
+        <item>未读询盘</item>
+        <item>已读询盘</item>
+        <item>回收站</item>
+    </string-array>
+</resources>
