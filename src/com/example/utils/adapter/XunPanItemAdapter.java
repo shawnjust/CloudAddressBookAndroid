@@ -27,8 +27,10 @@ public class XunPanItemAdapter extends BaseAdapter{
 	private OnListCheckBoxStateChanged checkListener;
 
 	
-	private Drawable labelReaded;
-	private Drawable labelUnreaded;
+	private Drawable labelFriends;
+	private Drawable labelSubMe;
+	private Drawable labelMySub;
+	private Drawable labelUnknown;
 	
 	private boolean[] checked;
 	private int checkedCount = 0;
@@ -37,13 +39,17 @@ public class XunPanItemAdapter extends BaseAdapter{
 		mInflater = LayoutInflater.from(context);
 		datas = new Vector<XunPanItem>();
 		mLayoutResourceId = R.layout.xunpan_item;
-		labelReaded = context.getResources().getDrawable(R.drawable.label_readed);
-		labelUnreaded = context.getResources().getDrawable(R.drawable.label_unreaded);
+		labelFriends = context.getResources().getDrawable(R.drawable.cloud);
+		labelSubMe = context.getResources().getDrawable(R.drawable.icon_sub_me);
+		labelMySub = context.getResources().getDrawable(R.drawable.icon_my_sub);
+		labelUnknown = context.getResources().getDrawable(R.drawable.icon_unknown);
 		int width,height;
-		width = labelReaded.getMinimumWidth();
-		height = labelReaded.getMinimumHeight();
-		labelReaded.setBounds(0,0,width,height);
-		labelUnreaded.setBounds(0,0,width,height);
+		width = labelFriends.getMinimumWidth();
+		height = labelFriends.getMinimumHeight();
+		labelFriends.setBounds(0,0,width,height);
+		labelSubMe.setBounds(0,0,width,height);
+		labelMySub.setBounds(0,0,width,height);
+		labelUnknown.setBounds(0,0,width,height);
 	}
 	
 	public void addItem(XunPanItem item){
@@ -111,10 +117,15 @@ public class XunPanItemAdapter extends BaseAdapter{
 
 		holder.checkBox.setOnCheckedChangeListener(new MyOnCheckedChangeListener(pos));
 		
-		if(datas.get(pos).isRead()){
-			holder.name.setCompoundDrawables(labelReaded, null, null, null);
+		int state = datas.get(pos).getState();
+		if(state==0){
+			holder.name.setCompoundDrawables(labelFriends, null, null, null);
+		}else if(state==1){
+			holder.name.setCompoundDrawables(labelMySub, null, null, null);
+		}else if(state==2){
+			holder.name.setCompoundDrawables(labelSubMe, null, null, null);
 		}else{
-			holder.name.setCompoundDrawables(labelUnreaded, null, null, null);
+			holder.name.setCompoundDrawables(labelUnknown, null, null, null);
 		}
 		return convertView;
 	}
@@ -204,8 +215,10 @@ public class XunPanItemAdapter extends BaseAdapter{
 	@Override
 	protected void finalize() throws Throwable {
 		// TODO Auto-generated method stub
-		labelReaded.setCallback(null);
-		labelUnreaded.setCallback(null);
+		labelFriends.setCallback(null);
+		labelMySub.setCallback(null);
+		labelSubMe.setCallback(null);
+		labelUnknown.setCallback(null);
 		super.finalize();
 	}
 	

@@ -11,7 +11,7 @@ public class XunPanItem  implements Serializable{
 
 	private String productName;
 	private String time;
-	private boolean isRead;
+	private int state;
 	private String country;
 	private String language;
 	private int followTime;
@@ -21,13 +21,13 @@ public class XunPanItem  implements Serializable{
 	
 	
 	
-	public XunPanItem(String productName, String time, boolean isRead,
+	public XunPanItem(String productName, String time, int state,
 			String country, String language, int followTime, String eMail,
 			String accountType) {
 		super();
 		this.productName = productName;
 		this.time = time;
-		this.isRead = isRead;
+		this.state = state;
 		this.country = country;
 		this.language = language;
 		this.followTime = followTime;
@@ -48,11 +48,11 @@ public class XunPanItem  implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public boolean isRead() {
-		return isRead;
+	public int getState() {
+		return state;
 	}
-	public void setRead(boolean isRead) {
-		this.isRead = isRead;
+	public void getState(int state) {
+		this.state = state;
 	}
 	public String getCountry() {
 		return country;

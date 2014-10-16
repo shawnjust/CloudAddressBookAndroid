@@ -157,9 +157,10 @@ public class ConnectServer {
 		if(page>=3){
 			return result;
 		}
-		for(int i = 0; i<6;i++){
-		result.add(new XunPanItem("任浃月"+2*i, "13761725087", false, "China", "Chinese", 0, "etwservice@etw.com", ""));
-		result.add(new XunPanItem("任浃月"+(2*i+1), "13761725087", true, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		for(int i = 0; i<3;i++){
+		result.add(new XunPanItem("任浃月"+2*i, "13761725087", 0, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		result.add(new XunPanItem("任浃月"+(2*i+1), "13761725087", 1, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		result.add(new XunPanItem("任浃月"+(2*i+1), "13761725087", 2, "China", "Chinese", 0, "etwservice@etw.com", ""));
 		}
 		return result;
 	}
