@@ -100,7 +100,7 @@ public class XunPanItemAdapter extends BaseAdapter{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		holder.name.setText(datas.get(pos).getProductName());
-		holder.phone.setText(datas.get(pos).getTime());
+		holder.phone.setText(datas.get(pos).getPhone());
 		holder.email.setText(datas.get(pos).geteMail());
 		holder.checkBox.setOnCheckedChangeListener(null);
 		if(checked!=null){

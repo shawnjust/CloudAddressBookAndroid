@@ -69,7 +69,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/dialog_btn_bg"
-                android:src="@drawable/btn_filter" />
+                android:src="@drawable/add" />
 
             <ImageButton
                 android:id="@+id/search_btn"
@@ -84,7 +84,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/dialog_btn_bg"
-                android:src="@drawable/btn_tag" />
+                android:src="@drawable/icon_msg" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_btn_bg"
+                android:src="@drawable/icon_settings" />
 
             <ImageButton
                 android:id="@+id/update_btn"
@@ -125,12 +131,14 @@
                 android:src="@drawable/delete_btn" />
 
             <ImageButton
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/dialog_btn_bg"
                 android:src="@drawable/btn_tag" />
             <ImageButton
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

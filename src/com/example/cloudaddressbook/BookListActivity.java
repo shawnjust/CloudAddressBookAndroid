@@ -119,8 +119,9 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 				// TODO Auto-generated method stub
 				XunPanItem xunpan = (XunPanItem)item;
 				Intent intent = getIntent();
-				//intent.setClass(BookListActivity.this, ShowXunpanDetailActivity.class);
-				//startActivity(intent);
+				intent.putExtra("item", xunpan);
+				intent.setClass(BookListActivity.this, ShowXunpanDetailActivity.class);
+				startActivityForResult(intent, 300);
 			}
 		});
 		
@@ -463,6 +464,16 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 			}else{
 				super.onBackPressed();
 			}
+		}
+		
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+			// TODO Auto-generated method stub
+		if (resultCode == 400) {
+			displayUpdateView(true);
+			taskSchedule.newTask(new GetXunPanItemsTask(), 1,filterNow);
+		}
+			super.onActivityResult(requestCode, resultCode, data);
 		}
 
 }

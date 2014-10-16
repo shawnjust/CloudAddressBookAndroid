@@ -48,7 +48,7 @@
             android:label="@string/title_activity_stranger_application" >
         </activity>
         <activity android:name="BookListActivity"></activity>
-        <activity android:name="m.etwservice.com.ShowXunpanDetailActivity"></activity>
+        <activity android:name="ShowXunpanDetailActivity"></activity>
     </application>
 
 </manifest>

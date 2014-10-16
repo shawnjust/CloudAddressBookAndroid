@@ -10,7 +10,7 @@ public class XunPanItem  implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private String productName;
-	private String time;
+	private String phone;
 	private int state;
 	private String country;
 	private String language;
@@ -21,12 +21,12 @@ public class XunPanItem  implements Serializable{
 	
 	
 	
-	public XunPanItem(String productName, String time, int state,
+	public XunPanItem(String productName, String phone, int state,
 			String country, String language, int followTime, String eMail,
 			String accountType) {
 		super();
 		this.productName = productName;
-		this.time = time;
+		this.phone = phone;
 		this.state = state;
 		this.country = country;
 		this.language = language;
@@ -42,11 +42,11 @@ public class XunPanItem  implements Serializable{
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getTime() {
-		return time;
+	public String getPhone() {
+		return phone;
 	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public int getState() {
 		return state;
