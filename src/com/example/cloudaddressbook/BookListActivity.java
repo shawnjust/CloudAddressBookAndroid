@@ -2,8 +2,6 @@ package com.example.cloudaddressbook;
 
 import java.util.ArrayList;
 
-import m.etwservice.com.ShowXunpanDetailActivity;
-
 import com.example.utils.adapter.XunPanItemAdapter;
 import com.example.utils.adapter.XunPanItemAdapter.OnListCheckBoxStateChanged;
 import com.example.utils.entities.XunPanItem;
@@ -121,8 +119,8 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 				// TODO Auto-generated method stub
 				XunPanItem xunpan = (XunPanItem)item;
 				Intent intent = getIntent();
-				intent.setClass(BookListActivity.this, ShowXunpanDetailActivity.class);
-				startActivity(intent);
+				//intent.setClass(BookListActivity.this, ShowXunpanDetailActivity.class);
+				//startActivity(intent);
 			}
 		});
 		
@@ -169,7 +167,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 			}
 		});
 		Spinner spinner = (Spinner) customView.findViewById(R.id.actionbar_spinner);
-		int[] temp = new int[]{223,123,1,23};
+		int[] temp = new int[]{23,12,1};
 		final ActionbarSpinnerAdapter spinnerAdapter = new ActionbarSpinnerAdapter(
 				getResources().getStringArray(R.array.xunpan_filters),
 				temp

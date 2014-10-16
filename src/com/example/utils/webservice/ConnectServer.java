@@ -158,8 +158,8 @@ public class ConnectServer {
 			return result;
 		}
 		for(int i = 0; i<6;i++){
-		result.add(new XunPanItem("productName"+2*i, "2014-8-11 09:43", false, "China", "Chinese", 0, "etwservice@etw.com", ""));
-		result.add(new XunPanItem("productName"+(2*i+1), "2014-8-11 09:44", true, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		result.add(new XunPanItem("任浃月"+2*i, "13761725087", false, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		result.add(new XunPanItem("任浃月"+(2*i+1), "13761725087", true, "China", "Chinese", 0, "etwservice@etw.com", ""));
 		}
 		return result;
 	}

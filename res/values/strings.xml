@@ -60,7 +60,7 @@
     <string name="text_selected_num_before">选中了</string>
     <string name="text_selected_num_after">项</string>
     <string name="title_activity_xun_pan">询盘</string>
-    <string name="search_view_hint">主题、邮箱地址、收件时间</string>
+    <string name="search_view_hint">姓名、邮箱、电话</string>
 
     <!-- 询盘详情 -->
     <string name="guest_detail">客户信息</string>

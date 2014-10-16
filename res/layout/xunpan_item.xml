@@ -17,18 +17,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:drawablePadding="15dp"
         android:drawableLeft="@drawable/label_readed"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:text="任浃月"
        />
     <TextView
         android:id="@+id/date"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:textSize="12sp"
+        android:layout_toRightOf="@+id/checkbox"
+        android:layout_alignBaseline="@+id/checkbox"
+        android:textColor="#253e4f"
+        android:text="13761725087"
        />
     
     <CheckBox 
@@ -40,10 +43,14 @@
         android:focusable="false"/>
     <TextView
         android:id="@+id/email"
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_toRightOf="@+id/checkbox"
-        android:layout_alignBaseline="@+id/checkbox"
+        android:layout_below="@+id/date"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingRight="15dp"
+        android:text="horaceking192@gmail.com"
        />
 
 </RelativeLayout>

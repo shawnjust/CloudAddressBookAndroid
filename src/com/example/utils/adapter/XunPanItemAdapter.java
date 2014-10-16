@@ -72,9 +72,9 @@ public class XunPanItemAdapter extends BaseAdapter{
 	}
 	
 	private class ViewHolder{
-		public TextView pruductName;
-		public TextView date;
-		public TextView eMail;
+		public TextView name;
+		public TextView email;
+		public TextView phone;
 		public CheckBox checkBox;
 	}
 	
@@ -85,17 +85,17 @@ public class XunPanItemAdapter extends BaseAdapter{
 		if(convertView== null){
 			convertView = mInflater.inflate(mLayoutResourceId, null);
 			holder = new ViewHolder();
-			holder.pruductName = (TextView)convertView.findViewById(R.id.product_name);
-			holder.date = (TextView)convertView.findViewById(R.id.date);
-			holder.eMail = (TextView)convertView.findViewById(R.id.email);
+			holder.name = (TextView)convertView.findViewById(R.id.product_name);
+			holder.phone = (TextView)convertView.findViewById(R.id.date);
+			holder.email = (TextView)convertView.findViewById(R.id.email);
 			holder.checkBox = (CheckBox)convertView.findViewById(R.id.checkbox);
 			convertView.setTag(holder);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
-		holder.pruductName.setText(datas.get(pos).getProductName());
-		holder.date.setText(datas.get(pos).getTime());
-		holder.eMail.setText(datas.get(pos).geteMail());
+		holder.name.setText(datas.get(pos).getProductName());
+		holder.phone.setText(datas.get(pos).getTime());
+		holder.email.setText(datas.get(pos).geteMail());
 		holder.checkBox.setOnCheckedChangeListener(null);
 		if(checked!=null){
 			holder.checkBox.setChecked(checked[pos]);
@@ -112,9 +112,9 @@ public class XunPanItemAdapter extends BaseAdapter{
 		holder.checkBox.setOnCheckedChangeListener(new MyOnCheckedChangeListener(pos));
 		
 		if(datas.get(pos).isRead()){
-			holder.pruductName.setCompoundDrawables(labelReaded, null, null, null);
+			holder.name.setCompoundDrawables(labelReaded, null, null, null);
 		}else{
-			holder.pruductName.setCompoundDrawables(labelUnreaded, null, null, null);
+			holder.name.setCompoundDrawables(labelUnreaded, null, null, null);
 		}
 		return convertView;
 	}
