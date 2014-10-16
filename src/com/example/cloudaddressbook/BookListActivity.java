@@ -39,7 +39,7 @@ import android.widget.Toast;
  * @author Jiayue Ren
  *
  */
-public class XunPanActivity extends com.example.utils.abstractActivities.PageListActivity {
+public class BookListActivity extends com.example.utils.abstractActivities.PageListActivity {
 	private final static int FILTER_ALL = 0;
 	private final static int FILTER_UNREADED = 1;
 	private final static int FILTER_READED = 0;
@@ -121,7 +121,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 				// TODO Auto-generated method stub
 				XunPanItem xunpan = (XunPanItem)item;
 				Intent intent = getIntent();
-				intent.setClass(XunPanActivity.this, ShowXunpanDetailActivity.class);
+				intent.setClass(BookListActivity.this, ShowXunpanDetailActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -235,7 +235,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 		@Override
 		protected ArrayList<XunPanItem> doInBackground(Integer... arg0) {
 			// TODO Auto-generated method stub
-			if(!NetworkState.isNetworkConnected(XunPanActivity.this)){
+			if(!NetworkState.isNetworkConnected(BookListActivity.this)){
 				return null;
 			}
 			type = arg0[0];
@@ -251,7 +251,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 		protected void onPostExecute(ArrayList<XunPanItem> result) {
 			// TODO Auto-generated method stub
 			if(result==null){
-				Toast.makeText(XunPanActivity.this, R.string.error_connect_failed, Toast.LENGTH_SHORT).show();
+				Toast.makeText(BookListActivity.this, R.string.error_connect_failed, Toast.LENGTH_SHORT).show();
 			}else{
 				if(type == 1){
 					adapter.removeAllItem();
@@ -363,7 +363,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 		
 		
 		public ActionbarSpinnerAdapter(String[] name, int[] num) {
-			super(XunPanActivity.this, R.layout.spinner_item, android.R.layout.simple_spinner_item, name);
+			super(BookListActivity.this, R.layout.spinner_item, android.R.layout.simple_spinner_item, name);
 			names = name;
 			numbers = num;
 			// TODO Auto-generated constructor stub
@@ -394,7 +394,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 		public View getView(int pos, View convertView, ViewGroup arg2) {
 			// TODO Auto-generated method stub
 			if(convertView==null){
-				convertView = LayoutInflater.from(XunPanActivity.this).inflate(R.layout.spinner_text_view, null);
+				convertView = LayoutInflater.from(BookListActivity.this).inflate(R.layout.spinner_text_view, null);
 				TextView tv = (TextView)convertView.findViewById(R.id.text);
 				tv.setText(names[pos]);
 //				tv  = (TextView)convertView.findViewById(R.id.num);
@@ -408,7 +408,7 @@ public class XunPanActivity extends com.example.utils.abstractActivities.PageLis
 				ViewGroup parent) {
 			// TODO Auto-generated method stub
 			if(convertView==null){
-				convertView = LayoutInflater.from(XunPanActivity.this).inflate(R.layout.spinner_item, null);
+				convertView = LayoutInflater.from(BookListActivity.this).inflate(R.layout.spinner_item, null);
 				TextView tv = (TextView)convertView.findViewById(R.id.text);
 				tv.setText(names[pos]);
 				tv  = (TextView)convertView.findViewById(R.id.num);
