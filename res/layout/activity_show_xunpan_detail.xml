@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:scrollbars="none" >
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:background="#4d6b88"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp" >
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" aa@126aaa.coma -- 上次询盘时间：2014-07-18 11:55:33"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/e_mail_text"
+            android:text="@string/guest_detail"
+            android:textColor="#002c2c"
+            android:background="#ede9e9"
+            android:textStyle="bold"
+            android:layout_columnSpan="2"
+            android:paddingRight="15dp"
+            android:drawableLeft="@drawable/label_guest"
+            android:gravity="center_vertical"
+            android:drawablePadding="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/guest_name"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+
+        <TextView
+            android:id="@+id/guest_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+ <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tel_or_fax"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+
+        <TextView
+            android:id="@+id/guest_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="top" />
+ <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/company_name"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+
+        <TextView
+            android:id="@+id/guest_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+ <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/msn_or_skype"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+
+        <TextView
+            android:id="@+id/guest_msn_or_skype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp" />
+ <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/guest_address"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+
+        <TextView
+            android:id="@+id/guest_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"/>
+			
+			<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/e_mail_text"
+            android:text="@string/xunpan_detail"
+            android:textColor="#002c2c"
+            android:background="#ede9e9"
+            android:textStyle="bold"
+            android:layout_columnSpan="2"
+            android:paddingRight="15dp"
+            android:drawableLeft="@drawable/label_details"
+            android:gravity="center_vertical"
+            android:drawablePadding="5dp"
+            />
+			<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/xunpan_send_time"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+        <TextView
+            android:id="@+id/xunpan_send_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textSize="13sp" />
+ <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/xunpan_from_page" 
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp" />
+        <TextView
+            android:id="@+id/xunpan_from_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+             />
+         <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/use_language"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+        <TextView
+            android:id="@+id/use_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+             />
+        
+        <TextView 
+            android:layout_columnSpan="2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#bcbcbc"/>
+        
+			<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/content_text"
+            android:drawableLeft="@drawable/label_item"
+            android:drawablePadding="5dp"  />
+        <TextView
+            android:id="@+id/content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+             />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/send_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_columnSpan="2"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/send"
+            android:textColor="#fff" />
+    </GridLayout>
+
+</ScrollView>

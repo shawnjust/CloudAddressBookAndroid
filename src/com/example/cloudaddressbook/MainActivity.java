@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		getActionBar().hide();
 
 		registButton = (Button) findViewById(R.id.registButton);
 		loginButton = (Button) findViewById(R.id.loginButton);
@@ -63,7 +64,7 @@ public class MainActivity extends Activity {
 
 											Intent intent = new Intent();
 											intent.setClass(MainActivity.this,
-													AddressBookActivity.class);
+													BookListActivity.class);
 											startActivity(intent);
 											MainActivity.this.finish();
 										}

@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="m.etwservice.com.NoticeListActivity"
+    tools:ignore="MergeRootFrame" 
+    android:background="#ede9e9">
+    <ListView 
+            android:id="@+id/notice_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:requiresFadingEdge="vertical"
+            android:listSelector="@drawable/list_item_indicator"
+            android:cacheColorHint="#ede9e9"
+            ></ListView>
+</FrameLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xunpan_filters">
+        <item>全部</item>
+        <item>我关联的</item>
+        <item>关联我的</item>
+    </string-array>
+</resources>

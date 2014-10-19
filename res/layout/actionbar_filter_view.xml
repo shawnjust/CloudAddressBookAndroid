@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+     >
+
+    <RelativeLayout
+        android:id="@+id/actionbar_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/actionbar_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/spinner_ab_holo_dark"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/total_num"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="25dp"
+            android:gravity="center_vertical"
+            android:textColor="#26343d"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/actionbar_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#b5b5b5"
+            android:padding="2dp" />
+
+        <ImageButton
+            android:id="@+id/finish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_btn_bg"
+            android:src="@drawable/ok_btn" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#b5b5b5"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/selected_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#efefef" />
+    </LinearLayout>
+
+    <view
+        android:id="@+id/actionbar_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.example.utils.views.MySearchView"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_box_on"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <AutoCompleteTextView
+                android:id="@+id/search_src_text"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:completionThreshold="1"
+                android:dropDownHorizontalOffset="0dp"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/search_view_hint"
+                android:imeOptions="actionSearch"
+                android:paddingEnd="0dp"
+                android:paddingStart="0dp"
+                android:singleLine="true"
+                android:textColor="#fff"
+                android:textColorHint="#e0e0e0" />
+
+            <ImageView
+                android:id="@+id/search_close_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:focusable="true"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:src="@drawable/ic_clear_search" />
+
+            <ImageView
+                android:id="@+id/search_go_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:focusable="true"
+                android:paddingEnd="15dip"
+                android:paddingStart="15dip"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/actionbar_search_btn" />
+        </LinearLayout>
+    </view>
+
+</FrameLayout>
