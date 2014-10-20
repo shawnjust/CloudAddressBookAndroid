@@ -6,12 +6,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.cloudaddressbook.beans.Result;
 import com.cloudaddressbook.wsclient.NetWorkHelper;
@@ -28,6 +30,7 @@ public class MainActivity extends Activity {
 
 	String email;
 	String password;
+	private LinearLayout progressBar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MainActivity extends Activity {
 		loginButton = (Button) findViewById(R.id.loginButton);
 		emailEditText = (EditText) findViewById(R.id.emailEditText);
 		passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-
+		progressBar = (LinearLayout)findViewById(R.id.progressBar);
 		
 		sp = getSharedPreferences("CloudAddressBookUserPref",
 				Activity.MODE_PRIVATE);
@@ -64,41 +67,11 @@ public class MainActivity extends Activity {
 
 				email = emailEditText.getText().toString();
 				password = passwordEditText.getText().toString();
-				NetWorkHelper net = NetWorkHelper.getInstance();
-				Result result = net.login(email, password);
-
-				if (result.isSuccess()) {
-
-					Editor editor = sp.edit();
-					editor.putString("username", email);
-					editor.putString("password", password);
-					editor.commit();
-					// new AlertDialog.Builder(MainActivity.this)
-					// .setTitle("登陆成功")
-					// .setMessage("登陆成功")
-					// .setPositiveButton("确定",
-					// new DialogInterface.OnClickListener() {
-					//
-					// @Override
-					// public void onClick(
-					// DialogInterface arg0, int arg1) {
-					// UserInstanceHelper instance = UserInstanceHelper
-					// .getInstance();
-					// instance.setSelfInformation(instance
-					// .getUsers().get(email));
-
-					Intent intent = new Intent();
-					intent.setClass(MainActivity.this, BookListActivity.class);
-					startActivity(intent);
-					MainActivity.this.finish();
-					// }
-					//
-					// }).show();
-				} else {
-					new AlertDialog.Builder(MainActivity.this).setTitle("登陆失败")
-							.setMessage("失败信息： " + result.getMessage())
-							.setPositiveButton("确定", null).show();
-				}
+//				NetWorkHelper net = NetWorkHelper.getInstance();
+//				Result result = net.login(email, password);
+				
+				progressBar.setVisibility(View.VISIBLE);
+				new LoginTask().execute();
 			}
 		});
 
@@ -116,20 +89,22 @@ public class MainActivity extends Activity {
 	}
 
 	public void performSignIn(String username, String password) {
-		NetWorkHelper net = NetWorkHelper.getInstance();
-		Result result = net.login(username, password);
-
-		if (result.isSuccess()) {
-
-			Intent intent = new Intent();
-			intent.setClass(MainActivity.this, BookListActivity.class);
-			startActivity(intent);
-			MainActivity.this.finish();
-		} else {
-			new AlertDialog.Builder(MainActivity.this).setTitle("登陆失败")
-					.setMessage("失败信息： " + result.getMessage())
-					.setPositiveButton("确定", null).show();
-		}
+//		NetWorkHelper net = NetWorkHelper.getInstance();
+//		Result result = net.login(username, password);
+//
+//		if (result.isSuccess()) {
+//
+//			Intent intent = new Intent();
+//			intent.setClass(MainActivity.this, BookListActivity.class);
+//			startActivity(intent);
+//			MainActivity.this.finish();
+//		} else {
+//			new AlertDialog.Builder(MainActivity.this).setTitle("登陆失败")
+//					.setMessage("失败信息： " + result.getMessage())
+//					.setPositiveButton("确定", null).show();
+//		}
+		progressBar.setVisibility(View.VISIBLE);
+		new LoginTask().execute();
 	}
 
 	@Override
@@ -139,4 +114,38 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	private class  LoginTask extends AsyncTask<Void, Void, Result>{
+
+		@Override
+		protected Result doInBackground(Void... arg0) {
+			// TODO Auto-generated method stub
+			
+			Result result = NetWorkHelper.getInstance().login(email, password);
+			return result;
+			
+			
+		}
+		@Override
+		protected void onPostExecute(Result result) {
+			// TODO Auto-generated method stub
+			if (result.isSuccess()) {
+				Editor editor = sp.edit();
+				editor.putString("username", email);
+				editor.putString("password", password);
+				editor.commit();
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, BookListActivity.class);
+				progressBar.setVisibility(View.GONE);
+				startActivity(intent);
+				MainActivity.this.finish();
+			} else {
+				progressBar.setVisibility(View.GONE);
+				new AlertDialog.Builder(MainActivity.this).setTitle("登陆失败")
+						.setMessage("失败信息： " + result.getMessage())
+						.setPositiveButton("确定", null).show();
+			}
+			
+			super.onPostExecute(result);
+		}
+	}
 }

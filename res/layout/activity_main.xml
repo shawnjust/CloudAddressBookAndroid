@@ -1,5 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="0dp"
@@ -7,7 +13,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="#fff"
-    tools:context=".MainActivity" >
+     >
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,3 +83,18 @@
     	/>
     </LinearLayout>
 </LinearLayout>
+<LinearLayout 
+    android:id="@+id/progressBar"
+    android:visibility="gone"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+    
+    <ProgressBar
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	/>
+</LinearLayout>
+</FrameLayout>
