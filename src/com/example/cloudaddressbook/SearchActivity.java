@@ -1,7 +1,10 @@
 package com.example.cloudaddressbook;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.cloudaddressbook.beans.UserDetail;
+import com.cloudaddressbook.wsclient.NetWorkHelper;
 import com.example.utils.adapter.SearchItemAdapter;
 import com.example.utils.entities.XunPanItem;
 import com.example.utils.utils.NetworkState;
@@ -10,6 +13,7 @@ import com.example.utils.views.MySearchView.OnQueryTextListener;
 import com.example.utils.webservice.ConnectServer;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.ActionBar.LayoutParams;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -146,7 +150,17 @@ public class SearchActivity extends com.example.utils.abstractActivities.PageLis
 			}else{
 				pageNum++;
 			}
-			return connect.searchItem(pageNum, key);
+			
+//			String email =  getSharedPreferences("CloudAddressBookUserPref",
+//					Activity.MODE_PRIVATE).getString("username","");
+				List<UserDetail> users =  NetWorkHelper.getInstance().search(searchKey);
+				ArrayList<XunPanItem> result = new ArrayList<XunPanItem>();
+				if(users!=null){
+					for(UserDetail user:users){
+						result.add(new XunPanItem(user,3));
+					}
+			}
+			return result;
 		}
 		@Override
 		protected void onPostExecute(ArrayList<XunPanItem> result) {

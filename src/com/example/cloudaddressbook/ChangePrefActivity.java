@@ -1,5 +1,8 @@
 package com.example.cloudaddressbook;
 
+import com.cloudaddressbook.wsclient.NetWorkHelper;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -75,15 +78,33 @@ public class ChangePrefActivity extends Activity {
 					editor.putString("password", newValue.getText().toString());
 					editor.commit();
 				}
+				if(type ==1){
+					new SavePrefTask().execute("phone",newValue.getText().toString());
+				}
 				new AlertDialog.Builder(ChangePrefActivity.this)
 				.setTitle("保存")
 				.setMessage("保存成功")
 				.setPositiveButton("确定",null).show();
 			}
 		});
+		
+		
 	}
 
-	
+	private class SavePrefTask extends AsyncTask<String, Void, Void>{
+
+		@Override
+		protected Void doInBackground(String... arg0) {
+			// TODO Auto-generated method stub
+			String key = arg0[0];
+			String value = arg0[1];
+			String email =  getSharedPreferences("CloudAddressBookUserPref",
+					Activity.MODE_PRIVATE).getString("username","");
+			//NetWorkHelper.getInstance().(email);
+			return null;
+		}
+		
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

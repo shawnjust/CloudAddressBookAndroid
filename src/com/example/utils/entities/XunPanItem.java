@@ -34,6 +34,17 @@ public class XunPanItem  implements Serializable{
 		state = 0;
 	}
 	
+	public XunPanItem(UserDetail user, int state){
+		productName = user.getName();
+		Map<String, String> map = user.getContent();
+		phone = map.get("phone");
+		if(phone==null){
+			phone = "";
+		}
+		eMail = user.getEmail();
+		this.state = state;
+	}
+	
 	public XunPanItem(String productName, String phone, int state,
 			String country, String language, int followTime, String eMail,
 			String accountType) {

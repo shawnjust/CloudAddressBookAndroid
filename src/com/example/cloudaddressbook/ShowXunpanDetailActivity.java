@@ -1,5 +1,9 @@
 package com.example.cloudaddressbook;
 
+import java.util.ArrayList;
+
+import com.cloudaddressbook.wsclient.NetWorkHelper;
+import com.example.utils.entities.Message;
 import com.example.utils.entities.XunPanItem;
 import com.example.utils.views.DeleteItemDialog;
 import com.example.utils.views.EditTextDialog;
@@ -8,6 +12,7 @@ import com.example.utils.views.EditTextDialog.OnConfirmListener;
 import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -162,6 +167,7 @@ public class ShowXunpanDetailActivity extends Activity {
 					@Override
 					public void OnConfirm(String text) {
 						// TODO Auto-generated method stub
+						new addFriendTask().execute();
 						b.setText("等待验证");
 						b.setEnabled(false);
 						setResult(400);
@@ -226,5 +232,22 @@ public class ShowXunpanDetailActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	
+	/**
+	 * 异步加载公告消息进程
+	 * @author Jiayue Ren
+	 */
+	private class addFriendTask extends AsyncTask<Integer, Void, ArrayList<Message>>{
+		private int type = -1;
+		@Override
+		protected ArrayList<Message> doInBackground(Integer... arg0) {
+			// TODO Auto-generated method stub
+			type = arg0[0];
+			String userEmail = getSharedPreferences("CloudAddressBookUserPref",
+					Activity.MODE_PRIVATE).getString("username","");
+			NetWorkHelper.getInstance().applyAddingFriend(userEmail,email);
+			
+			return null;
+		}
+		
+	}
 }

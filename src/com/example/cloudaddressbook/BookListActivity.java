@@ -330,7 +330,7 @@ public class BookListActivity extends
 					result.add(new XunPanItem(user));
 				}
 			}
-			return connect.getXunPan(pageNum, filter);
+			return result;
 		}
 
 		@Override
