@@ -21,16 +21,17 @@
             android:paddingTop="5dp" >
 
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product Name"
                 android:textColor="#fff" />
 
             <TextView
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" aa@126aaa.coma -- 上次询盘时间：2014-07-18 11:55:33"
+                android:text=" aa@126aaa.coma"
                 android:textColor="#fff" />
         </LinearLayout>
 
@@ -67,21 +68,9 @@
             android:layout_height="1px"
             android:background="#bcbcbc"/>
         
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/tel_or_fax"
-            android:drawableLeft="@drawable/label_item"
-            android:drawablePadding="5dp"  />
+      
 
-        <TextView
-            android:id="@+id/guest_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:gravity="top" />
+        
  <TextView 
             android:layout_columnSpan="2"
             android:layout_width="match_parent"
@@ -166,7 +155,7 @@
             android:drawableLeft="@drawable/label_item"
             android:drawablePadding="5dp"  />
         <TextView
-            android:id="@+id/xunpan_send_time"
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
@@ -186,63 +175,38 @@
             android:drawableLeft="@drawable/label_item"
             android:drawablePadding="5dp" />
         <TextView
-            android:id="@+id/xunpan_from_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-             />
-         <TextView 
-            android:layout_columnSpan="2"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#bcbcbc"/>
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/use_language"
-            android:drawableLeft="@drawable/label_item"
-            android:drawablePadding="5dp"  />
-        <TextView
-            android:id="@+id/use_language"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-             />
-        
-        <TextView 
-            android:layout_columnSpan="2"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#bcbcbc"/>
-        
-			<TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/content_text"
-            android:drawableLeft="@drawable/label_item"
-            android:drawablePadding="5dp"  />
-        <TextView
-            android:id="@+id/content_text"
+            android:id="@+id/email1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
              />
 
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:gravity="center"
+    android:layout_marginTop="35dp"
+    android:orientation="horizontal">
         <Button
-            android:visibility="gone"
             android:id="@+id/send_btn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_columnSpan="2"
-            android:layout_marginTop="15dp"
             android:background="@drawable/btn_bg"
             android:text="@string/send"
+            android:layout_marginRight="15dp"
+            android:padding="6dp"
             android:textColor="#fff" />
+        
+        <Button
+            android:id="@+id/send_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_bg"
+            android:layout_marginLeft="15dp"
+            android:text="@string/send"
+            android:padding="6dp"
+            android:textColor="#fff" />
+        </LinearLayout>
     </GridLayout>
 
 </ScrollView>

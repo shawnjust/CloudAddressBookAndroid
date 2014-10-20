@@ -3,6 +3,7 @@ package com.example.utils.adapter;
 import java.util.Vector;
 
 import com.example.cloudaddressbook.R;
+import com.example.utils.entities.Message;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,18 +17,18 @@ import android.widget.TextView;
  * @author Ren Jiayue
  *
  */
-public class SimpleTextAdapter extends BaseAdapter{
-	private Vector<String> proNames;
+public class NoticeListAdapter extends BaseAdapter{
+	private Vector<Message> proNames;
 	LayoutInflater mInflater;
 	private int mLayoutResourceId;
 
-	public SimpleTextAdapter(Context context, int rid) {
+	public NoticeListAdapter(Context context, int rid) {
 		mInflater = LayoutInflater.from(context);
-		proNames = new Vector<String>();
+		proNames = new Vector<Message>();
 		mLayoutResourceId = rid;
 	}
 	
-	public void addItem(String item){
+	public void addItem(Message item){
 		proNames.add(item);
 	}
 	
@@ -54,6 +55,8 @@ public class SimpleTextAdapter extends BaseAdapter{
 	
 	private class ViewHolder{
 		public TextView name;
+		public TextView date;
+		public TextView msg;
 	}
 	
 	
@@ -63,12 +66,16 @@ public class SimpleTextAdapter extends BaseAdapter{
 		if(convertView== null){
 			convertView = mInflater.inflate(mLayoutResourceId, null);
 			holder = new ViewHolder();
-			holder.name = (TextView)convertView.findViewById(R.id.text);
+			holder.name = (TextView)convertView.findViewById(R.id.name);
+			holder.msg = (TextView)convertView.findViewById(R.id.msg);
+			holder.date = (TextView)convertView.findViewById(R.id.date);
 			convertView.setTag(holder);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
-		holder.name.setText(proNames.get(pos));
+		holder.name.setText(proNames.get(pos).getUserName());
+		holder.msg.setText(proNames.get(pos).getMsg());
+		holder.date.setText(proNames.get(pos).getDate());
 		return convertView;
 	}
 

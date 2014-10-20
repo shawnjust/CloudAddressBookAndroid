@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".SettingsActivity" >
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp" 
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:text="我的账号" />
+<LinearLayout 
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+   	android:background="@drawable/item_bg"
+   	android:gravity="center"
+   	android:paddingTop="15dp"
+   	android:paddingBottom="15dp"
+   	>
+    <TextView
+        android:id="@+id/change_num_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更换号码" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="10dp"
+        android:background="#c5c5c5"
+         />
+    
+    <TextView
+        android:id="@+id/change_pw_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改密码" />
+   </LinearLayout>
+	 
+	 <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp" 
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:text="选项" />
+<LinearLayout 
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+   	android:background="@drawable/item_bg"
+   	android:gravity="center"
+   	android:paddingTop="15dp"
+   	android:paddingBottom="15dp"
+   	>
+    <CheckBox
+         android:id="@+id/checkbox_num_changed_inform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="接受好友换号提醒"
+        android:button="@drawable/btn_check_holo_dark"
+        android:layout_marginLeft="15dp"
+        android:checked="true"
+        />
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="10dp"
+        android:background="#c5c5c5"
+         />
+     <CheckBox
+         android:id="@+id/checkbox_msg_inform"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="接受消息提醒"
+        android:button="@drawable/btn_check_holo_dark"
+         android:layout_marginLeft="15dp"
+         android:checked="true"
+        />
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="10dp"
+        android:background="#c5c5c5"
+         />
+     <Button
+         android:id="@+id/save_btn"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"></Button>
+    </LinearLayout>
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp" 
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:text="选项" />
+<LinearLayout 
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+   	android:background="@drawable/item_bg"
+   	android:gravity="center"
+   	android:paddingTop="15dp"
+   	android:paddingBottom="15dp"
+   	>
+     
+     <TextView
+         android:id="@+id/signout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="登出"
+         />
+     </LinearLayout>
+</LinearLayout>

@@ -99,7 +99,7 @@ abstract public class PageListActivity extends UpdatableActivity{
 	/**是否滑动到底部**/
 	private boolean isLastRow = false;//
 	/**加载需要达到的最小滑动距离**/
-	protected int LOAD_MIN_SCROLL = 350;//
+	protected int LOAD_MIN_SCROLL = 250;//
 	/**加载视图的高度**/
 	protected int LOAD_VIEW_HEIGHT = 50;//
 	/**屏幕的高度**/

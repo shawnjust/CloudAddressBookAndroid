@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:background="#fff"
     android:orientation="vertical" >
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:gravity="center_vertical"
-            android:text="@string/announcement_and_notice"
+            android:text="消息"
             android:textColor="#233342"
             android:textSize="10pt" />
     </RelativeLayout>
@@ -33,7 +33,7 @@
         android:background="#c5c5c5" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:scrollbars="none" >
 
         <LinearLayout
@@ -45,8 +45,18 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp">
 
+             <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:textColor="#0c1e33"/>
             <TextView
                 android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:textColor="#0c1e33"/>
+            <TextView
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" 
                 android:textColor="#0c1e33"/>
@@ -72,6 +82,15 @@
             android:background="@drawable/dialog_btn_bg"
             android:gravity="center"
             android:text="@string/btn_i_know"
+            android:textColor="#3ca5ba" />
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_btn_bg"
+            android:gravity="center"
+            android:text="同意"
             android:textColor="#3ca5ba" />
     </LinearLayout>
 

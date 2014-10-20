@@ -8,7 +8,6 @@
     <string name="title_activity_self_infromation">SelfInfromationActivity</string>
     <string name="title_activity_search">Search</string>
     <string name="title_activity_stranger_application">StrangerApplicationActivity</string>
-    
     <string name="action_settings">设置</string>
     <string name="btn_login">登陆</string>
     <string name="hint_account">用户名</string>
@@ -63,21 +62,23 @@
     <string name="search_view_hint">姓名、邮箱、电话</string>
 
     <!-- 询盘详情 -->
-    <string name="guest_detail">客户信息</string>
-    <string name="xunpan_detail">询盘信息</string>
-    <string name="guest_name">客户姓名</string>
-    <string name="e_mail">客户邮箱</string>
+    <string name="guest_detail">个人信息</string>
+    <string name="xunpan_detail">联系方式</string>
+    <string name="guest_name">姓名</string>
+    <string name="e_mail">邮箱</string>
     <string name="content_text">询盘内容</string>
-    <string name="tel_or_fax">客户电话</string>
-    <string name="guest_address">客户地址</string>
-    <string name="xunpan_send_time">发送时间</string>
-    <string name="xunpan_from_page">来源页面</string>
+    <string name="tel_or_fax">电话</string>
+    <string name="guest_address">地址</string>
+    <string name="xunpan_send_time">电话</string>
+    <string name="xunpan_from_page">邮箱</string>
     <string name="msn_or_skype">MSN/Skype</string>
     <string name="use_language">使用语言</string>
     <string name="send">发送</string>
     <string name="product_name">产品名称</string>
-    <string name="company_name">客户公司</string>
+    <string name="company_name">公司</string>
     <string name="title_activity_show_xunpan_detail">ShowXunpanDetailActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_change_pref">ChangePrefActivity</string>
 
 </resources>

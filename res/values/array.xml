@@ -2,7 +2,8 @@
 <resources>
     <string-array name="xunpan_filters">
         <item>全部</item>
-        <item>我关联的</item>
-        <item>关联我的</item>
+        <item>我关注的</item>
+        <item>关注我的</item>
+        <item>互相关注</item>
     </string-array>
 </resources>

@@ -1,5 +1,9 @@
 package com.cloudaddressbook.beans;
 
+import org.w3c.dom.Element;
+
+import com.cloudaddressbook.wsclient.NetWorkHelper;
+
 public class Result {
 	public boolean success = false;
 	public int code = 0;
@@ -8,6 +12,11 @@ public class Result {
 
 	public Result() {
 
+	}
+
+	public Result(Element element) {
+		success = Boolean.parseBoolean((String) NetWorkHelper.getValueSafely(element, "isSuccess"));
+		message = NetWorkHelper.getValueSafely(element, "message");
 	}
 
 	public Result(boolean success, String message) {
