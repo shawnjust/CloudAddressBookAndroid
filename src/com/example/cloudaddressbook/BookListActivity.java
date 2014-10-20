@@ -1,6 +1,7 @@
 package com.example.cloudaddressbook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.ActionBar;
 import android.app.ActionBar.LayoutParams;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cloudaddressbook.beans.Result;
+import com.cloudaddressbook.beans.UserDetail;
 import com.cloudaddressbook.wsclient.NetWorkHelper;
 import com.example.utils.adapter.XunPanItemAdapter;
 import com.example.utils.adapter.XunPanItemAdapter.OnListCheckBoxStateChanged;
@@ -76,6 +78,24 @@ public class BookListActivity extends
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_xun_pan);
 
+//		new Thread(new Runnable() {
+//			List<UserDetail> list ;
+//			@Override
+//			public void run() {
+//				list = NetWorkHelper.getInstance().getAllFirend("shawn1@qq.com");
+//				BookListActivity.this.runOnUiThread(new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						String message = "";
+//						for (int i=0; i<list.size(); i++) {
+//							message += list.get(i).getName();
+//						}
+//						new AlertDialog.Builder(BookListActivity.this).setMessage(message).show();
+//					}
+//				});
+//			}
+//		}).start();
 
 		normalControlBar = (LinearLayout) findViewById(R.id.normal_bar);
 		editControlBar = (LinearLayout) findViewById(R.id.edit_bar);

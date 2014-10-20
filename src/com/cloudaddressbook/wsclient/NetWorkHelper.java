@@ -1,6 +1,8 @@
 package com.cloudaddressbook.wsclient;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -16,6 +18,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.cloudaddressbook.beans.Result;
@@ -99,7 +102,7 @@ public class NetWorkHelper {
 		}
 		return result;
 	}
-	
+
 	public UserDetail getUserDetailByEmail(String email) {
 		String httpUrl = URL_BASE + "getDetailInfo?email=" + email;
 		Document document = null;
@@ -122,6 +125,34 @@ public class NetWorkHelper {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	public List<UserDetail> getAllFirend(String email) {
+		String httpUrl = URL_BASE + "getContactor?email=" + email;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		List<UserDetail> list = new ArrayList<UserDetail>();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			NodeList nodeList = document.getElementsByTagName("contactor");
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				Element element = (Element) nodeList.item(i);
+				list.add(new UserDetail(element));
+			}
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 
 	public Result login(String email, String password) {
