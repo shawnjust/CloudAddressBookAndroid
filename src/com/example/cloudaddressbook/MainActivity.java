@@ -64,8 +64,8 @@ public class MainActivity extends Activity {
 
 				email = emailEditText.getText().toString();
 				password = passwordEditText.getText().toString();
-				Result result = NetWorkHelper.getInstance().login(email,
-						password);
+				NetWorkHelper net = NetWorkHelper.getInstance();
+				Result result = net.login(email, password);
 
 				if (result.isSuccess()) {
 
@@ -116,7 +116,8 @@ public class MainActivity extends Activity {
 	}
 
 	public void performSignIn(String username, String password) {
-		Result result = NetWorkHelper.getInstance().login(username, password);
+		NetWorkHelper net = NetWorkHelper.getInstance();
+		Result result = net.login(username, password);
 
 		if (result.isSuccess()) {
 

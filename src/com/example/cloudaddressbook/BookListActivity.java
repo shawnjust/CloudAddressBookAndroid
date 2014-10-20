@@ -76,25 +76,6 @@ public class BookListActivity extends
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_xun_pan);
 
-		new Thread(new Runnable() {
-			Result result;
-			@Override
-			public void run() {
-				NetWorkHelper net = NetWorkHelper.getInstance();
-				result = net.regist("shawn@gmail.com", "shawn", "1234");
-				BookListActivity.this.runOnUiThread(new Runnable() {
-
-					@Override
-					public void run() {
-						new AlertDialog.Builder(BookListActivity.this)
-								.setMessage(
-										"result:" + result.isSuccess() + " "
-												+ result.message).show();
-					}
-				});
-
-			}
-		}).start();
 
 		normalControlBar = (LinearLayout) findViewById(R.id.normal_bar);
 		editControlBar = (LinearLayout) findViewById(R.id.edit_bar);
