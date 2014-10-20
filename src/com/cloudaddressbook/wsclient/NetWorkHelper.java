@@ -102,6 +102,56 @@ public class NetWorkHelper {
 		}
 		return result;
 	}
+	
+	public Result applyAddingFriend(String email, String friendEmail) {
+		String httpUrl = URL_BASE + "addFirend?emailFrom=" + email + "&emailTo="
+				+ friendEmail;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		Result result = new Result();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public Result acceptAddingFriend(String email, String friendEmail) {
+		String httpUrl = URL_BASE + "ensureFirend?emailFrom=" + friendEmail + "&emailTo="
+				+ email;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		Result result = new Result();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public UserDetail getUserDetailByEmail(String email) {
 		String httpUrl = URL_BASE + "getDetailInfo?email=" + email;
@@ -129,6 +179,34 @@ public class NetWorkHelper {
 
 	public List<UserDetail> getAllFirend(String email) {
 		String httpUrl = URL_BASE + "getContactor?email=" + email;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		List<UserDetail> list = new ArrayList<UserDetail>();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			NodeList nodeList = document.getElementsByTagName("contactor");
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				Element element = (Element) nodeList.item(i);
+				list.add(new UserDetail(element));
+			}
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public List<UserDetail> getApply(String email) {
+		String httpUrl = URL_BASE + "getApply?email=" + email;
 		Document document = null;
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
 				.newInstance();
