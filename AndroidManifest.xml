@@ -49,6 +49,7 @@
         </activity>
         <activity android:name="BookListActivity"></activity>
         <activity android:name="ShowXunpanDetailActivity"></activity>
+        <activity android:name="NoticeListActivity"></activity>
     </application>
 
 </manifest>

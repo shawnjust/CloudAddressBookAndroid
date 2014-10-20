@@ -81,12 +81,14 @@
                 android:src="@drawable/btn_search" />
 
             <ImageButton
+                android:id="@+id/message_btn"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/dialog_btn_bg"
                 android:src="@drawable/icon_msg" />
             <ImageButton
+                android:id="@+id/settings"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

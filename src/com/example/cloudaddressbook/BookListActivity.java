@@ -15,6 +15,7 @@ import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -49,6 +50,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 	private ConnectServer connect;
 	private ImageButton updateBtn;
 	private ImageButton searchBtn;
+	private ImageButton messageBtn;
 	private LinearLayout updateState;
 	private ImageButton addFriendsBtn;
 	private TextView totalNum;
@@ -59,6 +61,8 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 	private LinearLayout actionbarEdit;
 	private TextView selectedNum;
 	private MySearchView actionbarSearch;
+	
+	private int backPressCount = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +105,19 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 				// TODO Auto-generated method stub
 				showSearchBar();
 				searchBtn.setVisibility(View.GONE);
+			}
+		});
+		
+		
+		messageBtn = (ImageButton)findViewById(R.id.message_btn);
+		messageBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = getIntent();
+				intent.setClass(BookListActivity.this, NoticeListActivity.class);
+				startActivity(intent);
 			}
 		});
 		
@@ -542,9 +559,26 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 				actionbarNormal.setVisibility(View.VISIBLE);
 				searchBtn.setVisibility(View.VISIBLE);
 			}else{
-				super.onBackPressed();
+				//super.onBackPressed();
+				if (backPressCount == 0) {
+					Toast.makeText(BookListActivity.this, "再按一次返回键退出！",
+							Toast.LENGTH_SHORT).show();
+					backPressCount = 1;
+					new Handler().postDelayed(new Runnable() {
+						@Override
+						public void run() {
+							backPressCount = 0;
+						}
+					}, 2000);
+
+				} else if (backPressCount == 1) {
+					finish();
+					//System.exit(0);
+				}
 			}
 		}
+		
+		
 		
 		@Override
 		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
