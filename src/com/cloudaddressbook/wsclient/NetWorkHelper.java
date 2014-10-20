@@ -154,6 +154,34 @@ public class NetWorkHelper {
 		}
 		return list;
 	}
+	
+	public List<UserDetail> search(String keyWord) {
+		String httpUrl = URL_BASE + "search?keyWord=" + keyWord;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		List<UserDetail> list = new ArrayList<UserDetail>();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			NodeList nodeList = document.getElementsByTagName("contactor");
+			for (int i = 0; i < nodeList.getLength(); i++) {
+				Element element = (Element) nodeList.item(i);
+				list.add(new UserDetail(element));
+			}
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 	public Result login(String email, String password) {
 		Map<String, User> map = UserInstanceHelper.getInstance().getUsers();
