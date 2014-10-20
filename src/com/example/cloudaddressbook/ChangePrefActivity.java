@@ -100,7 +100,7 @@ public class ChangePrefActivity extends Activity {
 			String value = arg0[1];
 			String email =  getSharedPreferences("CloudAddressBookUserPref",
 					Activity.MODE_PRIVATE).getString("username","");
-			//NetWorkHelper.getInstance().(email);
+			NetWorkHelper.getInstance().insertOrUpdateContact(email,key,value);
 			return null;
 		}
 		
