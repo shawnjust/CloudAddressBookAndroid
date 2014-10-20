@@ -81,7 +81,7 @@ public class BookListActivity extends
 			@Override
 			public void run() {
 				NetWorkHelper net = NetWorkHelper.getInstance();
-				result = net.regist("shawn@gmail.com", "shawn", "1234");
+				result = net.loginNet("shawn@gmail.com", "1234");
 				BookListActivity.this.runOnUiThread(new Runnable() {
 
 					@Override
