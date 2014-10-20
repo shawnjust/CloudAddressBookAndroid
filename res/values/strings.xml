@@ -8,7 +8,6 @@
     <string name="title_activity_self_infromation">SelfInfromationActivity</string>
     <string name="title_activity_search">Search</string>
     <string name="title_activity_stranger_application">StrangerApplicationActivity</string>
-    
     <string name="action_settings">设置</string>
     <string name="btn_login">登陆</string>
     <string name="hint_account">用户名</string>
@@ -79,5 +78,7 @@
     <string name="company_name">公司</string>
     <string name="title_activity_show_xunpan_detail">ShowXunpanDetailActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_change_pref">ChangePrefActivity</string>
 
 </resources>

@@ -51,6 +51,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 	private ImageButton updateBtn;
 	private ImageButton searchBtn;
 	private ImageButton messageBtn;
+	private ImageButton settingsBtn;
 	private LinearLayout updateState;
 	private ImageButton addFriendsBtn;
 	private TextView totalNum;
@@ -120,6 +121,18 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 				startActivity(intent);
 			}
 		});
+		
+		settingsBtn = (ImageButton)findViewById(R.id.settings);
+		settingsBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = getIntent();
+				intent.setClass(BookListActivity.this, SettingsActivity.class);
+				startActivityForResult(intent,300);
+			}
+		}); 
 		
 		adapter.setCheckListener(new OnListCheckBoxStateChanged() {
 			
@@ -586,6 +599,11 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 		if (resultCode == 400) {
 			displayUpdateView(true);
 			taskSchedule.newTask(new GetXunPanItemsTask(), 1,filterNow);
+		}else if(resultCode == 404){
+			Intent intent = getIntent();
+			intent.setClass(BookListActivity.this, MainActivity.class);
+			startActivity(intent);
+			finish();
 		}
 			super.onActivityResult(requestCode, resultCode, data);
 		}
