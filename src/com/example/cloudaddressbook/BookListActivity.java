@@ -50,6 +50,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 	private ImageButton updateBtn;
 	private ImageButton searchBtn;
 	private LinearLayout updateState;
+	private ImageButton addFriendsBtn;
 	private TextView totalNum;
 	
 	private LinearLayout normalControlBar;
@@ -66,6 +67,19 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 		
 		normalControlBar = (LinearLayout)findViewById(R.id.normal_bar);
 		editControlBar = (LinearLayout)findViewById(R.id.edit_bar);
+		
+		addFriendsBtn =  (ImageButton)findViewById(R.id.add_friend_btn);
+		addFriendsBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = getIntent();
+				intent.setClass(BookListActivity.this, SearchActivity.class);
+				startActivityForResult(intent, 300);
+			}
+		});
+		
 		
 		updateBtn = (ImageButton)findViewById(R.id.update_btn);
 		updateState = (LinearLayout)findViewById(R.id.update_state);
@@ -168,7 +182,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 			}
 		});
 		Spinner spinner = (Spinner) customView.findViewById(R.id.actionbar_spinner);
-		int[] temp = new int[]{23,12,1};
+		int[] temp = new int[]{23,12,1,14};
 		final ActionbarSpinnerAdapter spinnerAdapter = new ActionbarSpinnerAdapter(
 				getResources().getStringArray(R.array.xunpan_filters),
 				temp
@@ -195,7 +209,7 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 		
 		LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,
 				LayoutParams.MATCH_PARENT, Gravity.CENTER_VERTICAL|Gravity.LEFT);
-		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_CUSTOM);
+		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(customView,params);
 	}
 	
@@ -284,6 +298,72 @@ public class BookListActivity extends com.example.utils.abstractActivities.PageL
 		}
 	} 
 	
+	
+	
+	/**
+	 * 异步加载询盘列表的线程
+	 * @author Jiayue Ren
+	 * execute参数：
+	 * type 是重新加载（value=1）还是加载下一页（value=0）
+	 * filter 筛选参数，这个可自行定义自行解析
+	 */
+	public class SearchItemsTask extends AsyncTask<Integer, Void, ArrayList<XunPanItem>>{
+		private int type;
+		private String key;
+		public SearchItemsTask(String searchKey){
+			key = searchKey;
+		}
+		@Override
+		protected ArrayList<XunPanItem> doInBackground(Integer... arg0) {
+			// TODO Auto-generated method stub
+			if(!NetworkState.isNetworkConnected(BookListActivity.this)){
+				return null;
+			}
+			type = arg0[0];
+			if(type == 1){
+				pageNum = 0;
+			}else{
+				pageNum++;
+			}
+			return connect.searchItem(pageNum, key);
+		}
+		@Override
+		protected void onPostExecute(ArrayList<XunPanItem> result) {
+			// TODO Auto-generated method stub
+			if(result==null){
+				Toast.makeText(BookListActivity.this, R.string.error_connect_failed, Toast.LENGTH_SHORT).show();
+			}else{
+				if(type == 1){
+					adapter.removeAllItem();
+					adapter.finishCheck();
+					showNormalBar();
+				}
+				for(XunPanItem item:result){
+					adapter.addItem(item);
+				}
+				adapter.updateCheckedArraySize();
+				adapter.notifyDataSetChanged();
+				
+			}
+			if(type == 1){
+				scrollToFirst();
+			}else{
+				onTaskDone(getString(R.string.load_success));
+			}
+			taskSchedule.taskFinished();
+			displayUpdateView(false);
+		}
+		@Override
+		protected void onCancelled() {
+			// TODO Auto-generated method stub
+			taskSchedule.taskFinished();
+			//displayUpdateView(false);
+			if(type == 2){
+				onTaskDone(getString(R.string.load_success));
+			}
+			super.onCancelled();
+		}
+	} 
 	
 	/**
 	 * 显示更新的操作栏

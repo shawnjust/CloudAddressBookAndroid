@@ -1,6 +1,9 @@
 package com.example.cloudaddressbook;
 
 import com.example.utils.entities.XunPanItem;
+import com.example.utils.views.DeleteItemDialog;
+import com.example.utils.views.EditTextDialog;
+import com.example.utils.views.EditTextDialog.OnConfirmListener;
 
 import android.R.integer;
 import android.app.Activity;
@@ -59,10 +62,22 @@ public class ShowXunpanDetailActivity extends Activity {
 		deleteContractorListener = new OnClickListener() {
 			
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View btn) {
 				// TODO Auto-generated method stub
-				setResult(400);
-				finish();
+				final Button b = (Button)btn;
+				DeleteItemDialog.OnConfirmListener l = new DeleteItemDialog.OnConfirmListener() {
+					@Override
+					public void OnConfirm(boolean deleteWithGroup) {
+						// TODO Auto-generated method stub
+						setResult(400);
+						finish();
+					}
+				};
+				DeleteItemDialog dialog = new DeleteItemDialog(ShowXunpanDetailActivity.this,l,"确认要删除该联系人吗？");
+				
+				dialog.show();
+//				setResult(400);
+//				finish();
 			}
 		};
 		
@@ -71,9 +86,19 @@ public class ShowXunpanDetailActivity extends Activity {
 			@Override
 			public void onClick(View btn) {
 				// TODO Auto-generated method stub
-				setResult(400);
-				((Button)btn).setText("关联");
-				btn.setOnClickListener(addSubListener);
+				final Button b = (Button)btn;
+				DeleteItemDialog.OnConfirmListener l = new DeleteItemDialog.OnConfirmListener() {
+					@Override
+					public void OnConfirm(boolean deleteWithGroup) {
+						// TODO Auto-generated method stub
+						setResult(400);
+						b.setText("关注");
+						b.setOnClickListener(addSubListener);
+					}
+				};
+				DeleteItemDialog dialog = new DeleteItemDialog(ShowXunpanDetailActivity.this,l,"确认要取消关注吗？");
+				
+				dialog.show();
 			}
 		};
 		
@@ -82,9 +107,22 @@ public class ShowXunpanDetailActivity extends Activity {
 			@Override
 			public void onClick(View btn) {
 				// TODO Auto-generated method stub
-				setResult(400);
-				((Button)btn).setText("取消关联");
-				btn.setOnClickListener(deleteSubListener);
+				
+				final Button b = (Button)btn;
+				EditTextDialog dialog = new EditTextDialog(ShowXunpanDetailActivity.this);
+				dialog.setOnConfirmListener(new OnConfirmListener() {
+					
+					@Override
+					public void OnConfirm(String text) {
+						// TODO Auto-generated method stub
+						b.setText("等待验证");
+						b.setEnabled(false);
+						setResult(400);
+					}
+				});
+				dialog.show();
+//				((Button)btn).setText("取消关注");
+//				btn.setOnClickListener(deleteSubListener);
 			}
 		};
 		
@@ -93,9 +131,22 @@ public class ShowXunpanDetailActivity extends Activity {
 			@Override
 			public void onClick(View btn) {
 				// TODO Auto-generated method stub
-				setResult(401);
-				((Button)btn).setText("请求已发送");
-				btn.setEnabled(false);
+				final Button b = (Button)btn;
+				EditTextDialog dialog = new EditTextDialog(ShowXunpanDetailActivity.this);
+				dialog.setOnConfirmListener(new OnConfirmListener() {
+					
+					@Override
+					public void OnConfirm(String text) {
+						// TODO Auto-generated method stub
+						b.setText("请求已发送");
+						b.setEnabled(false);
+						setResult(401);
+					}
+				});
+				dialog.show();
+//				setResult(401);
+//				((Button)btn).setText("请求已发送");
+//				btn.setEnabled(false);
 			}
 		};
 		
@@ -104,9 +155,22 @@ public class ShowXunpanDetailActivity extends Activity {
 			@Override
 			public void onClick(View btn) {
 				// TODO Auto-generated method stub
-				setResult(400);
-				((Button)btn).setText("等待验证");
-				btn.setEnabled(false);
+				final Button b = (Button)btn;
+				EditTextDialog dialog = new EditTextDialog(ShowXunpanDetailActivity.this);
+				dialog.setOnConfirmListener(new OnConfirmListener() {
+					
+					@Override
+					public void OnConfirm(String text) {
+						// TODO Auto-generated method stub
+						b.setText("等待验证");
+						b.setEnabled(false);
+						setResult(400);
+					}
+				});
+				dialog.show();
+//				setResult(400);
+//				((Button)btn).setText("等待验证");
+//				btn.setEnabled(false);
 			}
 		};
 		
@@ -116,7 +180,7 @@ public class ShowXunpanDetailActivity extends Activity {
 		switch(state){
 		case 0:
 			btn.setText("删除该联系人");
-			btn1.setText("取消关联");
+			btn1.setText("取消关注");
 			btn1.setOnClickListener(deleteSubListener);
 			break;
 		case 1:
@@ -126,7 +190,7 @@ public class ShowXunpanDetailActivity extends Activity {
 			break;
 		case 2:
 			btn.setText("删除该联系人");
-			btn1.setText("关联");
+			btn1.setText("关注");
 			btn1.setOnClickListener(addSubListener);
 			break;
 		case 3:

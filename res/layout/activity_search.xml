@@ -1,17 +1,56 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <ProgressBar
-        android:id="@+id/searchProgressBar"
+    android:layout_height="fill_parent" >
+<com.example.utils.views.NonInterreptLinearLayout
+        android:id="@+id/list_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-50dp"
+        android:background="#ede9e9"
+        android:orientation="vertical" >
 
-    <ListView
-        android:id="@+id/search_result_listview"
+        <ListView
+            android:id="@+id/xunpan_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:cacheColorHint="#ede9e9"
+            android:divider="#d0d0d0"
+            android:dividerHeight="1px"
+            android:fadingEdgeLength="10dp"
+            android:listSelector="@drawable/list_item_indicator"
+            android:requiresFadingEdge="vertical"
+            android:scrollbars="none" 
+            android:animateLayoutChanges="true">
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/load_next_page_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/fading_edge"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/load_next_page_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pull_up_to_load_next_page"
+                android:textColor="#029eeb" />
+        </LinearLayout>
+    </com.example.utils.views.NonInterreptLinearLayout>
+    <LinearLayout 
+        
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/progressBar"
+        android:gravity="center">
+        <ProgressBar 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

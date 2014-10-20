@@ -164,4 +164,21 @@ public class ConnectServer {
 		}
 		return result;
 	}
+
+	public ArrayList<XunPanItem> searchItem(int pageNum, String key) {
+		// TODO Auto-generated method stub
+		try{
+			Thread.sleep(3000);
+		}catch(Exception e){
+			
+		}
+		ArrayList<XunPanItem> result = new ArrayList<XunPanItem>();
+		if(pageNum>=3){
+			return result;
+		}
+		for(int i = 0; i<3;i++){
+		result.add(new XunPanItem("任浃月"+2*i, "13761725087", 3, "China", "Chinese", 0, "etwservice@etw.com", ""));
+		}
+		return result;
+	}
 }
