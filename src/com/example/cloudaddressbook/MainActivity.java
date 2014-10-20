@@ -44,7 +44,6 @@ public class MainActivity extends Activity {
 		emailEditText = (EditText) findViewById(R.id.emailEditText);
 		passwordEditText = (EditText) findViewById(R.id.passwordEditText);
 		progressBar = (LinearLayout)findViewById(R.id.progressBar);
-		
 		sp = getSharedPreferences("CloudAddressBookUserPref",
 				Activity.MODE_PRIVATE);
 		email = sp.getString("username", "");
@@ -58,8 +57,8 @@ public class MainActivity extends Activity {
 		}
 		
 		
-		emailEditText.setText("shawn@qq.com");
-		passwordEditText.setText("1234");
+//		emailEditText.setText("shawn@qq.com");
+//		passwordEditText.setText("1234");
 		loginButton.setOnClickListener(new OnClickListener() {
 
 			@Override
