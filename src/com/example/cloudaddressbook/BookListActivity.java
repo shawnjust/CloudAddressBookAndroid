@@ -1,6 +1,7 @@
 package com.example.cloudaddressbook;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import android.app.ActionBar;
 import android.app.ActionBar.LayoutParams;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cloudaddressbook.beans.Result;
+import com.cloudaddressbook.beans.UserDetail;
 import com.cloudaddressbook.wsclient.NetWorkHelper;
 import com.example.utils.adapter.XunPanItemAdapter;
 import com.example.utils.adapter.XunPanItemAdapter.OnListCheckBoxStateChanged;
@@ -77,19 +79,21 @@ public class BookListActivity extends
 		// setContentView(R.layout.activity_xun_pan);
 
 		new Thread(new Runnable() {
-			Result result;
+			UserDetail result;
+
 			@Override
 			public void run() {
 				NetWorkHelper net = NetWorkHelper.getInstance();
-				result = net.loginNet("shawn@gmail.com", "1234");
+				result = net.getUserDetailByEmail("hello");
 				BookListActivity.this.runOnUiThread(new Runnable() {
 
 					@Override
 					public void run() {
+						Map<String, String> map = result.getContent();
+						String str = "result:" + result.getName() + " "
+								+ result.getEmail() + " " + map.get("key1");
 						new AlertDialog.Builder(BookListActivity.this)
-								.setMessage(
-										"result:" + result.isSuccess() + " "
-												+ result.message).show();
+								.setMessage(str).show();
 					}
 				});
 
