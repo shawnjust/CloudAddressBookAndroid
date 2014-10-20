@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
 		protected Result doInBackground(Void... arg0) {
 			// TODO Auto-generated method stub
 			
-			Result result = NetWorkHelper.getInstance().login(email, password);
+			Result result = NetWorkHelper.getInstance().loginNet(email, password);
 			return result;
 			
 			

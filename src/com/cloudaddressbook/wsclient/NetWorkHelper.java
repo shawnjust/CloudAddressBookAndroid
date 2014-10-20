@@ -20,6 +20,7 @@ import org.xml.sax.SAXException;
 
 import com.cloudaddressbook.beans.Result;
 import com.cloudaddressbook.beans.User;
+import com.cloudaddressbook.beans.UserDetail;
 
 public class NetWorkHelper {
 	private final String URL_BASE = "http://shawnjust93.oicp.net:8080/CloudAddressBook/services/user/";
@@ -58,10 +59,58 @@ public class NetWorkHelper {
 		DocumentBuilder documentBuilder;
 		Result result = new Result();
 		try {
-			documentBuilder = documentBuilderFactory
-					.newDocumentBuilder();
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
 			document = documentBuilder.parse(httpUrl);
 			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public Result loginNet(String email, String password) {
+		String httpUrl = URL_BASE + "login?email=" + email + "&password="
+				+ password;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		Result result = new Result();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public UserDetail getUserDetailByEmail(String email) {
+		String httpUrl = URL_BASE + "getDetailInfo?email=" + email;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		UserDetail result = null;
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new UserDetail(document.getDocumentElement());
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
