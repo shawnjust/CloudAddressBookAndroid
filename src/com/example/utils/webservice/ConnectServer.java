@@ -113,11 +113,11 @@ public class ConnectServer {
 			return result;
 		}
 		for(int i = 0; i<5;i++){
-		result.add(new Message(i,"aaa", "请求加你为好友", "2014-10-20", 0));
+		result.add(new Message(""+i,"aaa", "请求加你为好友", "2014-10-20", 0));
 		}
-		result.add(new Message(6,"bbb", "通过了你的好友请求", "2014-10-20", 3));
-		result.add(new Message(7,"aaa", "请求加你为好友", "2014-10-20", 2));
-		result.add(new Message(8,"aaa", "请求加你为好友", "2014-10-20", 1));
+		result.add(new Message("6","bbb", "通过了你的好友请求", "2014-10-20", 3));
+		result.add(new Message("7","aaa", "请求加你为好友", "2014-10-20", 2));
+		result.add(new Message("8","aaa", "请求加你为好友", "2014-10-20", 1));
 		return result;
 	}
 	/**

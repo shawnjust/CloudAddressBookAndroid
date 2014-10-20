@@ -1,33 +1,45 @@
 package com.example.utils.entities;
 
 import java.io.Serializable;
+import java.util.Map;
+
+import com.cloudaddressbook.beans.UserDetail;
 
 public class Message  implements Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private String email;
 	private String userName;
 	private String msg;
 	private String date;
 	private int type;
-	public Message(int id, String userName, String msg, String date, int type) {
+	public Message(UserDetail user) {
+		userName = user.getName();
+		msg = "请求加你为好友";
+		email = user.getEmail();
+		type = 0;
+	}
+	
+
+	public Message(String email, String userName, String msg, String date,
+			int type) {
 		super();
-		this.id = id;
+		this.email = email;
 		this.userName = userName;
 		this.msg = msg;
 		this.date = date;
 		this.type = type;
 	}
-	
-	
-	public int getId() {
-		return id;
+
+
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 

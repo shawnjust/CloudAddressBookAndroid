@@ -4,10 +4,14 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import com.cloudaddressbook.beans.UserDetail;
+import com.cloudaddressbook.wsclient.NetWorkHelper;
 import com.example.utils.adapter.NoticeListAdapter;
 import com.example.utils.entities.Message;
+import com.example.utils.entities.XunPanItem;
 import com.example.utils.utils.NetworkState;
 import com.example.utils.views.DisplayNoticeDialog;
 import com.example.utils.webservice.ConnectServer;
@@ -44,6 +48,7 @@ public class NoticeListActivity extends Activity {
 	private View headerView;
 	private View footView;
 	private String date;
+	private String email;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,8 @@ public class NoticeListActivity extends Activity {
 		Locale locale = getResources().getConfiguration().locale;
 		DateFormat dateFormat = DateFormat.getDateInstance(SimpleDateFormat.FULL, locale);
 		date = dateFormat.format(date1);
+		email = getSharedPreferences("CloudAddressBookUserPref",
+				Activity.MODE_PRIVATE).getString("username","");
 		// 初始化通知栏
 		noticeList = (ListView) findViewById(R.id.notice_list);
 		footView = LayoutInflater.from(this).inflate(R.layout.loadingbar, null);
@@ -101,7 +108,7 @@ public class NoticeListActivity extends Activity {
 				// TODO Auto-generated method stub
 				if (pos < noticeList.getCount() - 1) {
 					new DisplayNoticeDialog(NoticeListActivity.this, (Message) adapter
-							.getItem(pos-1)).show();
+							.getItem(pos-1),email).show();
 				}
 			}
 		});
@@ -143,11 +150,20 @@ public class NoticeListActivity extends Activity {
 				return null;
 			}
 			type = arg0[0];
-			if(LOAD_NEXT_PAGE == type&&!isLastPage){
-				return connect.getNoticeListByPage(pageNum+1);
-			}else if(LOAD_PREVIOUS_PAGE == type&&pageNum>0){
-				return connect.getNoticeListByPage(pageNum-1);
-			}
+			
+				List<UserDetail> users =  NetWorkHelper.getInstance().getApply(email);
+				ArrayList<Message> result = new ArrayList<Message>();
+				if(users!=null){
+					for(UserDetail user:users){
+						result.add(new Message(user));
+					}
+					return result;
+				}
+//			if(LOAD_NEXT_PAGE == type&&!isLastPage){
+//				return connect.getNoticeListByPage(pageNum+1);
+//			}else if(LOAD_PREVIOUS_PAGE == type&&pageNum>0){
+//				return connect.getNoticeListByPage(pageNum-1);
+//			}
 			cancel(true);
 			return null;
 		}

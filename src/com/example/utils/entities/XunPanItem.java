@@ -1,6 +1,10 @@
 package com.example.utils.entities;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
+import com.cloudaddressbook.beans.UserDetail;
 /**
  * 询盘信息（概览列表页面）数据结构
  */
@@ -19,7 +23,16 @@ public class XunPanItem  implements Serializable{
 	private String accountType;
 	
 	
-	
+	public XunPanItem(UserDetail user){
+		productName = user.getName();
+		Map<String, String> map = user.getContent();
+		phone = map.get("phone");
+		if(phone==null){
+			phone = "";
+		}
+		eMail = user.getEmail();
+		state = 0;
+	}
 	
 	public XunPanItem(String productName, String phone, int state,
 			String country, String language, int followTime, String eMail,

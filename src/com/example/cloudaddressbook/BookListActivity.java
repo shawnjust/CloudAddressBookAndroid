@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.ActionBar.LayoutParams;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -319,6 +320,15 @@ public class BookListActivity extends
 				pageNum = 0;
 			} else {
 				pageNum++;
+			}
+			String email =  getSharedPreferences("CloudAddressBookUserPref",
+				Activity.MODE_PRIVATE).getString("username","");
+			List<UserDetail> users =  NetWorkHelper.getInstance().getAllFirend(email);
+			ArrayList<XunPanItem> result = new ArrayList<XunPanItem>();
+			if(users!=null){
+				for(UserDetail user:users){
+					result.add(new XunPanItem(user));
+				}
 			}
 			return connect.getXunPan(pageNum, filter);
 		}
