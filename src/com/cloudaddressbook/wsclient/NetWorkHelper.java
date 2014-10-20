@@ -77,6 +77,31 @@ public class NetWorkHelper {
 		}
 		return result;
 	}
+	
+	public Result insertOrUpdateContact(String email, String key, String value) {
+		String httpUrl = URL_BASE + "insertOrUpdateContactMethod?email=" + email + "&key=" + key
+				+ "&value=" + value;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		Result result = new Result();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 	public Result loginNet(String email, String password) {
 		String httpUrl = URL_BASE + "login?email=" + email + "&password="
@@ -130,6 +155,31 @@ public class NetWorkHelper {
 	
 	public Result acceptAddingFriend(String email, String friendEmail) {
 		String httpUrl = URL_BASE + "ensureFirend?emailFrom=" + friendEmail + "&emailTo="
+				+ email;
+		Document document = null;
+		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		DocumentBuilder documentBuilder;
+		Result result = new Result();
+		try {
+			documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			document = documentBuilder.parse(httpUrl);
+			result = new Result(document.getDocumentElement());
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public Result rejectAddingFriend(String email, String friendEmail) {
+		String httpUrl = URL_BASE + "rejectFirend?emailFrom=" + friendEmail + "&emailTo="
 				+ email;
 		Document document = null;
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
